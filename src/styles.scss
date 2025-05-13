@@ -11,12 +11,15 @@ $dark-theme: mat.define-dark-theme((color: (primary: $primary,
 $light-theme: mat.define-light-theme((color: (primary: $primary,
                 accent: $accent,
             ), density: -3));
+
 .dark-mode {
     --app-bg-color: #424242;
     --app-primary-text-color: #fff;
     --app-secondary-text-color: rgba(255, 255, 255, .6);
     @include mat.all-component-themes($dark-theme);
-    .mat-mdc-table, .mat-mdc-paginator {
+
+    .mat-mdc-table,
+    .mat-mdc-paginator {
         background-color: #424242;
     }
 }
@@ -26,7 +29,9 @@ $light-theme: mat.define-light-theme((color: (primary: $primary,
     --app-primary-text-color: #000000de;
     --app-secondary-text-color: #0000008a;
     @include mat.all-component-themes($light-theme);
-    .mat-mdc-table, .mat-mdc-paginator {
+
+    .mat-mdc-table,
+    .mat-mdc-paginator {
         background-color: #fafafa;
     }
 }
@@ -43,4 +48,20 @@ body {
 
 body {
     margin: 0;
+}
+
+.snackbar-success {
+    background-color: #4caf50; // green
+    color: white;
+    font-weight: 500;
+}
+
+.snackbar-error {
+    background-color: #f44336; // red
+    color: white;
+}
+
+.snackbar-info {
+    background-color: #2196f3; // blue
+    color: white;
 }

@@ -5,5 +5,6 @@ export interface Task {
     status: 'Pending' | 'In Progress' | 'Completed';
     assignedTo: string;
     dueDate: string;
+    id: number
   }
   

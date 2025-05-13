@@ -23,7 +23,9 @@ export class TaskManagementService {
 
   // Optional: methods to mutate state
   addTask(task: Task): void {
-    const updated = [...this.tasksSubject.value, task];
+    let lastId = this.tasksSubject.value[this.tasksSubject.value.length]?.id || 0
+    task.id = lastId + 1
+    const updated = [task, ...this.tasksSubject.value];
     this.tasksSubject.next(updated);
   }
 
