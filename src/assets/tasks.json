@@ -31,7 +31,7 @@
     "taskName": "Add filter and sorting to task list",
     "description": "Implement client-side filtering and sorting functionality for the task list component in Angular.",
     "priority": "High",
-    "status": "In Progress",
+    "status": "Pending",
     "assignedTo": "Chandler",
     "dueDate": "2025-05-19"
   },
@@ -58,7 +58,7 @@
     "taskName": "Write unit tests for dashboard module",
     "description": "Ensure that all components in the dashboard module have appropriate unit tests with 90%+ coverage.",
     "priority": "Medium",
-    "status": "In Progress",
+    "status": "Pending",
     "assignedTo": "Ross",
     "dueDate": "2025-05-24"
   },
@@ -139,7 +139,7 @@
     "taskName": "Integrate Google Analytics tracking",
     "description": "Set up and configure Google Analytics to track user interaction and page visits for insights.",
     "priority": "Low",
-    "status": "In Progress",
+    "status": "Completed",
     "assignedTo": "Chandler",
     "dueDate": "2025-05-30"
   },
@@ -148,7 +148,7 @@
     "taskName": "Implement drag-and-drop for task cards",
     "description": "Add drag and drop features using Angular CDK to allow task reordering on the dashboard.",
     "priority": "High",
-    "status": "In Progress",
+    "status": "Completed",
     "assignedTo": "Joey",
     "dueDate": "2025-06-01"
   },
@@ -157,7 +157,7 @@
     "taskName": "Refactor shared module dependencies",
     "description": "Move commonly used pipes, directives, and components to a shared module to reduce redundancy.",
     "priority": "Medium",
-    "status": "Pending",
+    "status": "Completed",
     "assignedTo": "Phoebe",
     "dueDate": "2025-06-02"
   },
@@ -175,7 +175,7 @@
     "taskName": "Enable PWA capabilities in the app",
     "description": "Add service worker, caching, and offline support to convert the web app into a Progressive Web App.",
     "priority": "Medium",
-    "status": "Pending",
+    "status": "Completed",
     "assignedTo": "Rachel",
     "dueDate": "2025-06-04"
   },
@@ -184,7 +184,7 @@
     "taskName": "Fix scroll behavior on page refresh",
     "description": "Ensure the scroll position resets to top on page navigation or browser refresh for better UX.",
     "priority": "Low",
-    "status": "Completed",
+    "status": "In Progress",
     "assignedTo": "Monica",
     "dueDate": "2025-06-05"
   },
@@ -220,7 +220,7 @@
     "taskName": "Add breadcrumb navigation bar",
     "description": "Provide users with a breadcrumb trail for easy navigation and orientation within the application.",
     "priority": "Low",
-    "status": "Completed",
+    "status": "In Progress",
     "assignedTo": "Ross",
     "dueDate": "2025-06-09"
   }

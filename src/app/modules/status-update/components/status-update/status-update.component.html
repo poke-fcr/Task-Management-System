@@ -1,1 +1,28 @@
-<p>status-update works!</p>
+<div cdkDropListGroup style="padding: 24px">
+    <div class="example-container">
+        <h2>Pending</h2>
+
+        <div id="pending" cdkDropList [cdkDropListData]="pending" class="example-list"
+            (cdkDropListDropped)="drop($event)">
+            <div class="example-box" *ngFor="let item of pending" cdkDrag>{{item.taskName}}</div>
+        </div>
+    </div>
+
+    <div class="example-container">
+        <h2>In Progress</h2>
+
+        <div id="inprogress" cdkDropList [cdkDropListData]="inProgress" class="example-list"
+            (cdkDropListDropped)="drop($event)">
+            <div class="example-box" *ngFor="let item of inProgress" cdkDrag>{{item.taskName}}</div>
+        </div>
+    </div>
+
+    <div class="example-container">
+        <h2>Completed</h2>
+
+        <div id="completed" cdkDropList [cdkDropListData]="completed" class="example-list"
+            (cdkDropListDropped)="drop($event)">
+            <div class="example-box" *ngFor="let item of completed" cdkDrag>{{item.taskName}}</div>
+        </div>
+    </div>
+</div>

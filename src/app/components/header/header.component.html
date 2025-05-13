@@ -6,13 +6,13 @@
     <span class="spacer-custom"></span>
     <ng-container *ngIf="!isMobileMode">
         <div>
-            <button mat-button routerLink="tasks" routerLinkActive="active-link">
+            <button mat-button routerLink="dashboard" routerLinkActive="active-link">
                 <mat-icon>dashboard</mat-icon><span class="label-custom">Dashboard</span>
             </button>
             <button mat-button routerLink="task-detail/add" routerLinkActive="active-link">
                 <mat-icon>library_add</mat-icon><span class="label-custom">Add Task</span>
             </button>
-            <button mat-button>
+            <button mat-button routerLink="status-update" routerLinkActive="active-link">
                 <mat-icon>view_carousel</mat-icon><span class="label-custom">Status Update</span>
             </button>
             <mat-slide-toggle (change)="switch($event)"><span class="label-custom">Dark Mode</span></mat-slide-toggle>

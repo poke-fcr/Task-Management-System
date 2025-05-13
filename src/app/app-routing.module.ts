@@ -16,6 +16,10 @@ const routes: Routes = [
     path: 'task-detail',
     loadChildren: () => import('./modules/task-list-add-edit/task-list-add-edit.module').then(v => v.TaskListAddEditModule)
   },
+    {
+    path: 'status-update',
+    loadChildren: () => import('./modules/status-update/status-update.module').then(v => v.StatusUpdateModule)
+  },
   {
     path: '**',
     component: PageNotFoundComponent
