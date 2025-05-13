@@ -6,10 +6,10 @@ const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: 'tasks'
+    redirectTo: 'dashboard'
   },
   {
-    path: 'tasks',
+    path: 'dashboard',
     loadChildren: () => import('./modules/dashboard/dashboard.module').then(v => v.DashboardModule)
   },
   {

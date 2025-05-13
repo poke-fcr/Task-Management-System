@@ -77,7 +77,7 @@ export class TaskListAddEditComponent implements OnInit, OnDestroy {
           horizontalPosition: 'center',
           verticalPosition: 'top',
         })
-        this.router.navigate(['tasks'])
+        this.router.navigate(['dashboard'])
       }
     })
   }
@@ -96,7 +96,7 @@ export class TaskListAddEditComponent implements OnInit, OnDestroy {
         verticalPosition: 'top',
       });
       setTimeout(() => {
-        this.router.navigate(["tasks"])
+        this.router.navigate(['dashboard'])
       }, 1000)
     }
   }
@@ -110,7 +110,7 @@ export class TaskListAddEditComponent implements OnInit, OnDestroy {
       horizontalPosition: 'center',
       verticalPosition: 'top',
     });
-    this.router.navigate(["tasks"])
+    this.router.navigate(['dashboard'])
   }
 
   ngOnDestroy(): void {
