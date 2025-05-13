@@ -10,7 +10,7 @@ const routes: Routes = [
   },
   {
     path: 'tasks',
-    loadChildren: () => import('./modules/task-list-view/task-list-view.module').then(v => v.TaskListViewModule)
+    loadChildren: () => import('./modules/dashboard/dashboard.module').then(v => v.DashboardModule)
   },
   {
     path: 'task-detail',
