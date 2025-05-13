@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { TaskManagementService } from 'src/app/services/task-management.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-task-list-add-edit',
@@ -12,11 +13,14 @@ import { TaskManagementService } from 'src/app/services/task-management.service'
 export class TaskListAddEditComponent implements OnInit {
   mode: 'add' | 'edit' | 'view' = 'add'
   taskFormGroup!: FormGroup
+  users: string[] = []
+  today = new Date()
   constructor(private taskService: TaskManagementService, private formBuilder: FormBuilder
-    , private router: Router, private snackbar: MatSnackBar
+    , private router: Router, private snackbar: MatSnackBar, private userService: UserService
   ) { }
 
   ngOnInit() {
+    this.fetchUsers()
     this.taskFormGroup = this.formBuilder.group({
       taskName: ["", [Validators.maxLength(50), Validators.required]],
       description: ["", Validators.maxLength(200)],
@@ -24,6 +28,12 @@ export class TaskListAddEditComponent implements OnInit {
       status: ["", Validators.required],
       assignedTo: ["", Validators.required],
       dueDate: ["", Validators.required],
+    })
+  }
+
+  fetchUsers() {
+    this.userService.users$.subscribe((value: string[]) => {
+      this.users = value
     })
   }
 
