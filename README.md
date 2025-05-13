@@ -1,27 +1,44 @@
-# TaskManagementSystem
+Task Management System
+Hosted https://task-management-system-2.web.app/
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.16.
+Project Setup
+Node: 16+ required
+Angular Cli 16+ required
+npm i followed by npm run start or ng serve
 
-## Development server
+Project Structure
+Modules
+    Dashboard (Summary of task with action buttons to edit, view and update)
+    Status Update (Quick drag-drop functionality to update tast status)
+    Task List Add Update (A reusable component to View, Create and Update task)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Services
+    AppService (Common utilities functions)
+    TaskManagementService (CRUD operation for tasks and state management)
+    UserService (Fetch Users)
 
-## Code scaffolding
+Project Features
+    Pagination 
+        The tasklist have pagination, user can view certain task at a time (all tasks are fetched on one call)
+    Search/Filter Task
+        A search bar provided to search tasks
+    Sorting
+        On click of column header, sorting can be applied Asc/Desc
+    Lazy Loading
+        All the modules are lazily loaded, optimizing the application
+    Drag and Drop
+        A simple drag drop functionality to quickly update status of a task
+    Dark Mode
+        Toggle provided at header to switch between light and dark theme
+    Create, Edit, View and Delete Task
+        Reactive form with validation to perform CRUD operations on ease
+    Firebase integrated for hosting
+        Hosting with firebase to access the website
+    Responsive
+        Angular material to provide responsiveness and good layout on web and mobile
+    Error Handling
+        User friendly messages displayed with help of anular material snackbar
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.

@@ -1,0 +1,85 @@
+<div class="table-container">
+    <div [ngClass]="{ 'd-flex': !isMobileMode, 'd-flex-col': isMobileMode}">
+        <h2 class="mat-title">
+            Dashboard - Task List View
+        </h2>
+        <!-- <div class="d-flex-end"> -->
+        <mat-form-field appearance="outline" class="search-field">
+            <mat-label>Search</mat-label>
+            <input type="text" matInput (keyup)="applyFilter($event)"
+                placeholder="Search by task name or description" />
+        </mat-form-field>
+        <!-- <button class="primary-button" color="primary" mat-raised-button><mat-icon>library_add</mat-icon>Add Task</button> -->
+        <!-- </div> -->
+    </div>
+
+    <table mat-table [dataSource]="dataSource" matSort class="task-table">
+
+        <!-- Task Name -->
+        <ng-container matColumnDef="taskName">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Task Name</th>
+            <td mat-cell *matCellDef="let task">{{ (task.taskName?.substr(0,20)) + (task.taskName?.length > 20 ? '...': '') }}</td>
+        </ng-container>
+
+        <!-- Description -->
+        <ng-container matColumnDef="description">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Description</th>
+            <td mat-cell *matCellDef="let task">{{ (task.description?.substr(0, 20)) + (task.description?.length > 20 ? '...': '')  }}</td>
+        </ng-container>
+
+        <!-- Priority -->
+        <ng-container matColumnDef="priority">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Priority</th>
+            <td mat-cell *matCellDef="let task">{{ task.priority }}</td>
+        </ng-container>
+
+        <!-- Status -->
+        <ng-container matColumnDef="status">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Status</th>
+            <td mat-cell *matCellDef="let task">{{ task.status }}</td>
+        </ng-container>
+
+        <!-- Assigned To -->
+        <ng-container matColumnDef="assignedTo">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Assigned To</th>
+            <td mat-cell *matCellDef="let task">{{ task.assignedTo }}</td>
+        </ng-container>
+
+        <!-- Due Date -->
+        <ng-container matColumnDef="dueDate">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Due Date</th>
+            <td mat-cell *matCellDef="let task">{{ task.dueDate | date }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="action">
+            <th mat-header-cell *matHeaderCellDef> Action </th>
+            <td mat-cell *matCellDef="let task">
+                <button mat-icon-button color="primary" (click)="onView(task)">
+                    <mat-icon>visibility</mat-icon>
+                </button>
+                <button mat-icon-button color="accent" (click)="onEdit(task)">
+                    <mat-icon>edit</mat-icon>
+                </button>
+                <button mat-icon-button color="warn" (click)="onDelete(task)">
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </td>
+        </ng-container>
+
+
+        <!-- Header and Row Definitions -->
+        <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+        <tr mat-row *matRowDef="let row; columns: columnsToDisplay;"></tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[6, 10, 25]" showFirstLastButtons></mat-paginator>
+</div>
+
+<ng-template #confirmDialog id="confirmDialog" let-data>
+    <h2 mat-dialog-title>Confirm Deletion</h2>
+    <mat-dialog-content>Are you sure you want to delete this task?</mat-dialog-content>
+    <mat-dialog-actions align="end">
+        <button mat-button mat-dialog-close>No</button>
+        <button mat-button color="warn" (click)="confirmDelete(data)">Yes</button>
+    </mat-dialog-actions>
+</ng-template>

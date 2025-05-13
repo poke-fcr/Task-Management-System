@@ -15,12 +15,18 @@ export class AppComponent implements OnInit {
     this.appService.isDarkMode$.subscribe((v: boolean) => {
       this.isDarkMode = v
     })
+    this.checkScreenSize()
   }
 
   @HostListener('window:resize', ['$event'])
   onResize(event: Event) {
     const width = (event.target as Window).innerWidth;
     this.appService.setMobileMode(width < 720)
+  }
+
+
+  checkScreenSize() {
+    this.appService.setMobileMode(window.innerWidth < 720)
   }
 
 

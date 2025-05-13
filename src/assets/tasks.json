@@ -1,0 +1,227 @@
+[
+  {
+    "id": 1,
+    "taskName": "Implement user authentication system",
+    "description": "Develop a secure and reliable authentication mechanism including login, signup, and password recovery.",
+    "priority": "High",
+    "status": "In Progress",
+    "assignedTo": "Ross",
+    "dueDate": "2025-05-20"
+  },
+  {
+    "id": 2,
+    "taskName": "Redesign the landing page layout",
+    "description": "Create a modern and responsive layout for the landing page that improves user engagement and aesthetics.",
+    "priority": "Medium",
+    "status": "Pending",
+    "assignedTo": "Rachel",
+    "dueDate": "2025-05-22"
+  },
+  {
+    "id": 3,
+    "taskName": "Fix navbar responsiveness issue",
+    "description": "Resolve the issue where the navbar overlaps content on smaller screen sizes and add a hamburger menu.",
+    "priority": "Low",
+    "status": "Completed",
+    "assignedTo": "Monica",
+    "dueDate": "2025-05-18"
+  },
+  {
+    "id": 4,
+    "taskName": "Add filter and sorting to task list",
+    "description": "Implement client-side filtering and sorting functionality for the task list component in Angular.",
+    "priority": "High",
+    "status": "Pending",
+    "assignedTo": "Chandler",
+    "dueDate": "2025-05-19"
+  },
+  {
+    "id": 5,
+    "taskName": "Setup CI/CD pipeline using GitHub Actions",
+    "description": "Create an automated build, test, and deploy pipeline to ensure smooth integration and deployment.",
+    "priority": "Medium",
+    "status": "Pending",
+    "assignedTo": "Joey",
+    "dueDate": "2025-05-23"
+  },
+  {
+    "id": 6,
+    "taskName": "Optimize image loading performance",
+    "description": "Use lazy loading and compression to improve the image loading speed and overall site performance.",
+    "priority": "High",
+    "status": "Pending",
+    "assignedTo": "Phoebe",
+    "dueDate": "2025-05-21"
+  },
+  {
+    "id": 7,
+    "taskName": "Write unit tests for dashboard module",
+    "description": "Ensure that all components in the dashboard module have appropriate unit tests with 90%+ coverage.",
+    "priority": "Medium",
+    "status": "Pending",
+    "assignedTo": "Ross",
+    "dueDate": "2025-05-24"
+  },
+  {
+    "id": 8,
+    "taskName": "Update project README documentation",
+    "description": "Revise the README file with proper setup instructions, contribution guide, and feature list.",
+    "priority": "Low",
+    "status": "Completed",
+    "assignedTo": "Rachel",
+    "dueDate": "2025-05-15"
+  },
+  {
+    "id": 9,
+    "taskName": "Implement dark/light theme toggle",
+    "description": "Add a theme toggle switch and SCSS-based color variables to enable dark and light modes.",
+    "priority": "High",
+    "status": "In Progress",
+    "assignedTo": "Monica",
+    "dueDate": "2025-05-25"
+  },
+  {
+    "id": 10,
+    "taskName": "Migrate application to Angular 16",
+    "description": "Upgrade all dependencies and syntax changes to make the app fully compatible with Angular 16.",
+    "priority": "Medium",
+    "status": "Pending",
+    "assignedTo": "Chandler",
+    "dueDate": "2025-05-28"
+  },
+  {
+    "id": 11,
+    "taskName": "Design user profile card component",
+    "description": "Create a reusable user card UI with profile image, name, and action buttons styled with Angular Material.",
+    "priority": "Low",
+    "status": "Completed",
+    "assignedTo": "Joey",
+    "dueDate": "2025-05-17"
+  },
+  {
+    "id": 12,
+    "taskName": "Create error page for 404 & 500 routes",
+    "description": "Design custom error pages for 404 and 500 scenarios with user-friendly messages and a back link.",
+    "priority": "Medium",
+    "status": "In Progress",
+    "assignedTo": "Phoebe",
+    "dueDate": "2025-05-29"
+  },
+  {
+    "id": 13,
+    "taskName": "Build notification component service",
+    "description": "Create a notification service to show toast messages for success, error, and info across modules.",
+    "priority": "High",
+    "status": "In Progress",
+    "assignedTo": "Ross",
+    "dueDate": "2025-05-26"
+  },
+  {
+    "id": 14,
+    "taskName": "Fix footer visibility on small screens",
+    "description": "Ensure the footer stays at the bottom of the page even when content is short, using flex layouts.",
+    "priority": "Low",
+    "status": "Completed",
+    "assignedTo": "Rachel",
+    "dueDate": "2025-05-20"
+  },
+  {
+    "id": 15,
+    "taskName": "Add accessibility for color blindness",
+    "description": "Implement accessibility enhancements including ARIA labels and contrast adjustments for visual clarity.",
+    "priority": "Medium",
+    "status": "Pending",
+    "assignedTo": "Monica",
+    "dueDate": "2025-05-27"
+  },
+  {
+    "id": 16,
+    "taskName": "Integrate Google Analytics tracking",
+    "description": "Set up and configure Google Analytics to track user interaction and page visits for insights.",
+    "priority": "Low",
+    "status": "Completed",
+    "assignedTo": "Chandler",
+    "dueDate": "2025-05-30"
+  },
+  {
+    "id": 17,
+    "taskName": "Implement drag-and-drop for task cards",
+    "description": "Add drag and drop features using Angular CDK to allow task reordering on the dashboard.",
+    "priority": "High",
+    "status": "Completed",
+    "assignedTo": "Joey",
+    "dueDate": "2025-06-01"
+  },
+  {
+    "id": 18,
+    "taskName": "Refactor shared module dependencies",
+    "description": "Move commonly used pipes, directives, and components to a shared module to reduce redundancy.",
+    "priority": "Medium",
+    "status": "Completed",
+    "assignedTo": "Phoebe",
+    "dueDate": "2025-06-02"
+  },
+  {
+    "id": 19,
+    "taskName": "Develop team member invite feature",
+    "description": "Enable users to send email invites to collaborators using SendGrid or similar email API.",
+    "priority": "High",
+    "status": "In Progress",
+    "assignedTo": "Ross",
+    "dueDate": "2025-06-03"
+  },
+  {
+    "id": 20,
+    "taskName": "Enable PWA capabilities in the app",
+    "description": "Add service worker, caching, and offline support to convert the web app into a Progressive Web App.",
+    "priority": "Medium",
+    "status": "Completed",
+    "assignedTo": "Rachel",
+    "dueDate": "2025-06-04"
+  },
+  {
+    "id": 21,
+    "taskName": "Fix scroll behavior on page refresh",
+    "description": "Ensure the scroll position resets to top on page navigation or browser refresh for better UX.",
+    "priority": "Low",
+    "status": "In Progress",
+    "assignedTo": "Monica",
+    "dueDate": "2025-06-05"
+  },
+  {
+    "id": 22,
+    "taskName": "Export task list to Excel and PDF",
+    "description": "Add export functionality using libraries to allow downloading task data in Excel or PDF formats.",
+    "priority": "High",
+    "status": "Pending",
+    "assignedTo": "Chandler",
+    "dueDate": "2025-06-06"
+  },
+  {
+    "id": 23,
+    "taskName": "Add animation to sidebar toggle",
+    "description": "Use Angular animations to create smooth slide-in and slide-out transitions for the sidebar.",
+    "priority": "Medium",
+    "status": "In Progress",
+    "assignedTo": "Joey",
+    "dueDate": "2025-06-07"
+  },
+  {
+    "id": 24,
+    "taskName": "Configure role-based access control",
+    "description": "Implement guards and directives to restrict or allow page access based on user roles and permissions.",
+    "priority": "High",
+    "status": "Pending",
+    "assignedTo": "Phoebe",
+    "dueDate": "2025-06-08"
+  },
+  {
+    "id": 25,
+    "taskName": "Add breadcrumb navigation bar",
+    "description": "Provide users with a breadcrumb trail for easy navigation and orientation within the application.",
+    "priority": "Low",
+    "status": "In Progress",
+    "assignedTo": "Ross",
+    "dueDate": "2025-06-09"
+  }
+]
