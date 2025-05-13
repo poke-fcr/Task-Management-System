@@ -1,24 +1,30 @@
 <div class="task-container">
     <h2 class="mat-title">
-        Add Task
+        <ng-container *ngIf="mode == 'add'">Add Task</ng-container>
+        <ng-container *ngIf="mode == 'edit'">Edit Task</ng-container>
+        <ng-container *ngIf="mode == 'view'">View Task</ng-container>
+
     </h2>
-    <form [formGroup]="taskFormGroup">
+    <form [formGroup]="taskFormGroup" *ngIf="mode !== 'view'; else viewMode">
         <mat-grid-list cols="4" rowHeight="72px" gutterSize="12px">
+
             <mat-grid-tile colspan="4">
-                <mat-form-field style="width: 100%;" appearance="outline" hintLabel="Max 50 characters">
+                <mat-form-field appearance="outline" style="width: 100%;" hintLabel="Max 50 characters">
                     <mat-label>Task name</mat-label>
                     <input matInput #inputTaskName maxlength="50" placeholder="Ex. Task one" formControlName="taskName">
-                    <mat-hint align="end">{{inputTaskName.value.length}}/10</mat-hint>
+                    <mat-hint align="end">{{ inputTaskName.value.length || 0 }}/50</mat-hint>
                 </mat-form-field>
             </mat-grid-tile>
+
             <mat-grid-tile colspan="4" rowspan="2">
                 <mat-form-field style="width: 100%;" appearance="outline" hintLabel="Max 200 characters">
                     <mat-label>Task Description</mat-label>
-                    <textarea matInput #inputTaskDesc maxlength="200" placeholder="Ex. Task one description goes here."
+                    <textarea matInput #inputTaskDesc maxlength="200" placeholder="Ex. Task description"
                         formControlName="description"></textarea>
-                    <mat-hint align="end">{{inputTaskDesc.value.length}}/200</mat-hint>
+                    <mat-hint align="end">{{ inputTaskDesc.value.length || 0 }}/200</mat-hint>
                 </mat-form-field>
             </mat-grid-tile>
+
             <mat-grid-tile colspan="2">
                 <mat-form-field style="width: 100%;" appearance="outline">
                     <mat-label>Select Priority</mat-label>
@@ -29,44 +35,114 @@
                     </mat-select>
                 </mat-form-field>
             </mat-grid-tile>
+
             <mat-grid-tile colspan="2">
                 <mat-form-field style="width: 100%;" appearance="outline">
                     <mat-label>Select Status</mat-label>
                     <mat-select formControlName="status">
                         <mat-option value="Pending">Pending</mat-option>
                         <mat-option value="In Progress">In Progress</mat-option>
-                        <mat-option value="Completed">Compelted</mat-option>
+                        <mat-option value="Completed">Completed</mat-option>
                     </mat-select>
                 </mat-form-field>
             </mat-grid-tile>
+
             <mat-grid-tile colspan="2">
                 <mat-form-field style="width: 100%;" appearance="outline">
                     <mat-label>Assignee</mat-label>
-                    <mat-select formControlName="assignedTo" appearance>
-                        <mat-option *ngFor="let user of users" [value]="user">{{user}}</mat-option>
+                    <mat-select formControlName="assignedTo">
+                        <mat-option *ngFor="let user of users" [value]="user">{{ user }}</mat-option>
                     </mat-select>
                 </mat-form-field>
-
             </mat-grid-tile>
+
             <mat-grid-tile colspan="2">
-                <!-- <mat-form-field style="width: 100%;" appearance="outline">
-                    <mat-label>Due Date</mat-label>
-                    <input type="date" matInput #input formControlName="dueDate" class="custom-date">
-                </mat-form-field> -->
                 <mat-form-field style="width: 100%;" appearance="outline">
                     <mat-label>Due date</mat-label>
-                    <input matInput [matDatepicker]="picker" formControlName="dueDate"  [min]="today"
-                   >
+                    <input matInput [matDatepicker]="picker" formControlName="dueDate" [min]="today">
                     <mat-hint>MM/DD/YYYY</mat-hint>
-                    <mat-datepicker-toggle matIconSuffix [for]="picker" ></mat-datepicker-toggle>
+                    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
                     <mat-datepicker #picker [startAt]="today"></mat-datepicker>
                 </mat-form-field>
             </mat-grid-tile>
+
         </mat-grid-list>
+
         <div style="text-align: end;">
             <button routerLink="/tasks" mat-raised-button color="secondary">Cancel</button>
-            <button (click)="createTask()" style="margin-left: 12px;" mat-raised-button color="primary">Create
-                Task</button>
+
+            <ng-container *ngIf="mode == 'add'"> <button (click)="createTask()" style="margin-left: 12px;"
+                    mat-raised-button color="primary">Create
+                    Task</button></ng-container>
+            <ng-container *ngIf="mode == 'edit'"> <button (click)="updateTask()" style="margin-left: 12px;"
+                    mat-raised-button color="primary">Update
+                    Task</button></ng-container>
         </div>
     </form>
+
+    <!-- Read-only view -->
+    <ng-template #viewMode>
+        <mat-grid-list cols="4" rowHeight="72px" gutterSize="12px">
+            <mat-grid-tile colspan="4">
+                <div class="readonly-field">
+                    <div style="display:flex"> <mat-icon color="primary">title</mat-icon>
+                        <h4>Task name</h4>
+                    </div>
+                    <p>{{ taskFormGroup.get('taskName')?.value }}</p>
+                </div>
+            </mat-grid-tile>
+
+            <mat-grid-tile colspan="4">
+                <div class="readonly-field">
+                    <div style="display:flex"> <mat-icon color="accent">notes</mat-icon>
+                        <h4>Task Description</h4>
+                    </div>
+                    <p>{{ taskFormGroup.get('description')?.value }}</p>
+                </div>
+            </mat-grid-tile>
+
+            <mat-grid-tile [colspan]="isMobileMode ? 2 : 1">
+                <div class="readonly-field">
+                    <div style="display:flex"> <mat-icon color="warn">priority_high</mat-icon>
+                        <h4>Priority</h4>
+                    </div>
+                    <mat-chip selected>
+                        {{ taskFormGroup.get('priority')?.value }}
+                    </mat-chip>
+                </div>
+            </mat-grid-tile>
+
+            <mat-grid-tile [colspan]="isMobileMode ? 2 : 1">
+                <div class="readonly-field">
+                    <div style="display:flex"> <mat-icon color="primary">track_changes</mat-icon>
+                        <h4>Status</h4>
+                    </div>
+                    <mat-chip selected>
+                        {{ taskFormGroup.get('status')?.value }}
+                    </mat-chip>
+                </div>
+            </mat-grid-tile>
+
+            <mat-grid-tile [colspan]="isMobileMode ? 2 : 1">
+                <div class="readonly-field">
+                    <div style="display:flex"> <mat-icon color="accent">person</mat-icon>
+                        <h4>Assigned To</h4>
+                    </div>
+                    <p>{{ taskFormGroup.get('assignedTo')?.value }}</p>
+                </div>
+            </mat-grid-tile>
+
+            <mat-grid-tile [colspan]="isMobileMode ? 2 : 1">
+                <div class="readonly-field">
+                    <div style="display:flex"> <mat-icon color="primary">event</mat-icon>
+                        <h4>Due Date</h4>
+                    </div>
+                    <p>{{ taskFormGroup.get('dueDate')?.value | date: 'MM/dd/yyyy' }}</p>
+                </div>
+            </mat-grid-tile>
+
+        </mat-grid-list>
+    </ng-template>
+
+
 </div>

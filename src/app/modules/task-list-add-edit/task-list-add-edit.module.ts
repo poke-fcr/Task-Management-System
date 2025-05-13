@@ -10,8 +10,10 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import {MatDatepickerModule, MatStartDate} from '@angular/material/datepicker';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { MatChipsModule} from '@angular/material/chips'
+import { MatIcon, MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,8 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatSnackBarModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatIconModule,
+    MatChipsModule
   ]
 })
 export class TaskListAddEditModule { }

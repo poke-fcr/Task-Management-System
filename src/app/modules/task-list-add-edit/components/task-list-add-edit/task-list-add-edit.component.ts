@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Router } from '@angular/router';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
+import { Task } from 'src/app/interface/taskList';
+import { AppService } from 'src/app/services/app.service';
 import { TaskManagementService } from 'src/app/services/task-management.service';
 import { UserService } from 'src/app/services/user.service';
 
@@ -15,12 +17,15 @@ export class TaskListAddEditComponent implements OnInit {
   taskFormGroup!: FormGroup
   users: string[] = []
   today = new Date()
-  constructor(private taskService: TaskManagementService, private formBuilder: FormBuilder
-    , private router: Router, private snackbar: MatSnackBar, private userService: UserService
+  taskId!: number
+  isMobileMode: boolean = false
+  constructor(private taskService: TaskManagementService, private formBuilder: FormBuilder, private appService: AppService
+    , private router: Router, private snackbar: MatSnackBar, private userService: UserService, private activateRouter: ActivatedRoute
   ) { }
 
   ngOnInit() {
-    this.fetchUsers()
+    this.appService.isMobileMode$.subscribe((v:boolean) => this.isMobileMode = v)
+
     this.taskFormGroup = this.formBuilder.group({
       taskName: ["", [Validators.maxLength(50), Validators.required]],
       description: ["", Validators.maxLength(200)],
@@ -29,12 +34,52 @@ export class TaskListAddEditComponent implements OnInit {
       assignedTo: ["", Validators.required],
       dueDate: ["", Validators.required],
     })
+    let url = this.router.url;
+    if (url.includes('view') || url.includes('edit')) {
+      this.taskId = Number(this.activateRouter.snapshot.paramMap.get('id') || '0')
+      this.fetchTaskData()
+      if (url.includes('view')) {
+        this.mode = 'view'
+        this.taskFormGroup.disable()
+
+      } else {
+        this.mode = 'edit'
+      }
+    } else {
+      this.mode = 'add'
+    }
+    this.fetchUsers()
+
   }
 
   fetchUsers() {
     this.userService.users$.subscribe((value: string[]) => {
       this.users = value
     })
+  }
+
+  fetchTaskData() {
+    this.taskService.tasks$.subscribe((task: Task[]) => {
+      if (!task.length) {
+        return;
+      }
+      let taskData = task.find(t => t.id === this.taskId)
+      if (taskData) {
+        this.initializeTaskData(taskData)
+      } else {
+        this.snackbar.open("Unable to find task with id: " + this.taskId + '. Redirecting to dashboard', 'Close', {
+          duration: 3000,               // auto-close after 3 seconds
+          panelClass: ['snackbar-error'], // custom CSS class
+          horizontalPosition: 'center',
+          verticalPosition: 'top',
+        })
+        this.router.navigate(['tasks'])
+      }
+    })
+  }
+
+  initializeTaskData(taskData: Task) {
+    this.taskFormGroup.patchValue(taskData)
   }
 
   createTask() {
@@ -50,6 +95,11 @@ export class TaskListAddEditComponent implements OnInit {
         this.router.navigate(["tasks"])
       }, 1000)
     }
+  }
+
+
+  updateTask(){
+    this.taskService.updateTask(this.taskId, this.taskFormGroup.getRawValue())
   }
 
 }

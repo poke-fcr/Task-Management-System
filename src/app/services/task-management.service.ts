@@ -29,9 +29,11 @@ export class TaskManagementService {
     this.tasksSubject.next(updated);
   }
 
-  updateTask(index: number, task: Task): void {
+  updateTask(taskId: number, task: Task): void {
     const updated = [...this.tasksSubject.value];
-    updated[index] = task;
+    let tempTaskIndex = updated.findIndex(t => t.id == taskId);
+    task.id = taskId
+    updated[tempTaskIndex] = task
     this.tasksSubject.next(updated);
   }
 

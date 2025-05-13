@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { Router } from '@angular/router';
 import { Task } from 'src/app/interface/taskList';
 import { AppService } from 'src/app/services/app.service';
 import { TaskManagementService } from 'src/app/services/task-management.service';
@@ -18,7 +19,7 @@ export class TaskListViewComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(private taskService: TaskManagementService, private appService: AppService) { }
+  constructor(private taskService: TaskManagementService, private appService: AppService, private router: Router) { }
 
   ngOnInit(): void {
     this.appService.isMobileMode$.subscribe((value: boolean) => this.isMobileMode = value)
@@ -45,8 +46,14 @@ export class TaskListViewComponent implements OnInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
-  onView(e:any){}
-  onEdit(e:any){}
-  onDelete(e:any){}
+  onView(t: Task) {
+    this.router.navigate(['task-detail', 'view', t.id])
+  }
+
+  onEdit(t: Task) {
+    this.router.navigate(['task-detail', 'edit', t.id])
+   }
+
+  onDelete(e: any) { }
 
 }

@@ -10,3 +10,35 @@ button {
 .custom-date {
     color: var(--app-secondary-text-color) !important;
 }
+
+.readonly-field {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 8px 0;
+  
+    mat-icon {
+      vertical-align: middle;
+      margin-bottom: 4px;
+      margin-right: 4px;
+    }
+  
+    h4 {
+      font-weight: bold;
+      margin: 0 0 4px;
+      font-size: 14px;
+      color: var(--app-primary-text-color);
+    }
+  
+    p, mat-chip {
+      margin: 0;
+      margin-left: 28px;
+      font-size: 14px;
+      color: var(--app-secondary-text-color) !important;
+    }
+  }
+  
+
+:host ::ng-deep .mat-grid-tile-content {
+    justify-content: start !important;
+}
