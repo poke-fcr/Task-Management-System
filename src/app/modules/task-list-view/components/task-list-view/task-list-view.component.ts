@@ -1,4 +1,5 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
@@ -18,8 +19,9 @@ export class TaskListViewComponent implements OnInit {
   isMobileMode: boolean = false
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
+  @ViewChild('confirmDialog') confirmDialog!: TemplateRef<any>
 
-  constructor(private taskService: TaskManagementService, private appService: AppService, private router: Router) { }
+  constructor(private taskService: TaskManagementService, private appService: AppService, private router: Router, public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.appService.isMobileMode$.subscribe((value: boolean) => this.isMobileMode = value)
@@ -54,6 +56,13 @@ export class TaskListViewComponent implements OnInit {
     this.router.navigate(['task-detail', 'edit', t.id])
    }
 
-  onDelete(e: any) { }
+  onDelete(e: Task) { 
+    this.dialog.open(this.confirmDialog, { data: e});
+  }
+
+  confirmDelete(e: any) {
+    this.taskService.deleteTask(e.id)
+    this.dialog.closeAll()
+  }
 
 }

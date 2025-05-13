@@ -37,8 +37,8 @@ export class TaskManagementService {
     this.tasksSubject.next(updated);
   }
 
-  deleteTask(index: number): void {
-    const updated = this.tasksSubject.value.filter((_, i) => i !== index);
+  deleteTask(taskId: number): void {
+    const updated = this.tasksSubject.value.filter((t:Task) => t.id !== taskId);
     this.tasksSubject.next(updated);
   }
 }

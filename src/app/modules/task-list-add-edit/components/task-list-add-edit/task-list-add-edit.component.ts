@@ -100,6 +100,13 @@ export class TaskListAddEditComponent implements OnInit {
 
   updateTask(){
     this.taskService.updateTask(this.taskId, this.taskFormGroup.getRawValue())
+    this.snackbar.open('Task Updated, Navigating to dashboard', 'Close', {
+      duration: 3000,               // auto-close after 3 seconds
+      panelClass: ['snackbar-success'], // custom CSS class
+      horizontalPosition: 'center',
+      verticalPosition: 'top',
+    });
+    this.router.navigate(["tasks"])
   }
 
 }
