@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { Task } from 'src/app/interface/taskList';
 import { AppService } from 'src/app/services/app.service';
 import { TaskManagementService } from 'src/app/services/task-management.service';
@@ -12,19 +13,22 @@ import { UserService } from 'src/app/services/user.service';
   templateUrl: './task-list-add-edit.component.html',
   styleUrls: ['./task-list-add-edit.component.scss']
 })
-export class TaskListAddEditComponent implements OnInit {
+export class TaskListAddEditComponent implements OnInit, OnDestroy {
   mode: 'add' | 'edit' | 'view' = 'add'
   taskFormGroup!: FormGroup
   users: string[] = []
   today = new Date()
   taskId!: number
   isMobileMode: boolean = false
+  mobileModeSubscription!: Subscription
+  userSubscription!: Subscription
+  taskSubscription!: Subscription
   constructor(private taskService: TaskManagementService, private formBuilder: FormBuilder, private appService: AppService
     , private router: Router, private snackbar: MatSnackBar, private userService: UserService, private activateRouter: ActivatedRoute
   ) { }
 
   ngOnInit() {
-    this.appService.isMobileMode$.subscribe((v:boolean) => this.isMobileMode = v)
+    this.appService.isMobileMode$.subscribe((v: boolean) => this.isMobileMode = v)
 
     this.taskFormGroup = this.formBuilder.group({
       taskName: ["", [Validators.maxLength(50), Validators.required]],
@@ -53,13 +57,13 @@ export class TaskListAddEditComponent implements OnInit {
   }
 
   fetchUsers() {
-    this.userService.users$.subscribe((value: string[]) => {
+    this.userSubscription = this.userService.users$.subscribe((value: string[]) => {
       this.users = value
     })
   }
 
   fetchTaskData() {
-    this.taskService.tasks$.subscribe((task: Task[]) => {
+    this.taskSubscription = this.taskService.tasks$.subscribe((task: Task[]) => {
       if (!task.length) {
         return;
       }
@@ -98,7 +102,7 @@ export class TaskListAddEditComponent implements OnInit {
   }
 
 
-  updateTask(){
+  updateTask() {
     this.taskService.updateTask(this.taskId, this.taskFormGroup.getRawValue())
     this.snackbar.open('Task Updated, Navigating to dashboard', 'Close', {
       duration: 3000,               // auto-close after 3 seconds
@@ -107,6 +111,18 @@ export class TaskListAddEditComponent implements OnInit {
       verticalPosition: 'top',
     });
     this.router.navigate(["tasks"])
+  }
+
+  ngOnDestroy(): void {
+    if (this.taskSubscription) {
+      this.taskSubscription.unsubscribe()
+    }
+    if (this.mobileModeSubscription) {
+      this.mobileModeSubscription.unsubscribe()
+    }
+    if(this.userSubscription) {
+      this.userSubscription.unsubscribe()
+    }
   }
 
 }

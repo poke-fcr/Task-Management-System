@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { TaskListViewRoutingModule } from './task-list-view-routing.module';
-import { TaskListViewComponent } from './components/task-list-view/task-list-view.component';
+import { DashboardRoutingModule } from './dashboard-routing.module';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatPaginatorModule } from '@angular/material/paginator';
@@ -15,11 +15,11 @@ import { MatDialogModule } from '@angular/material/dialog'
 
 @NgModule({
   declarations: [
-    TaskListViewComponent
+    DashboardComponent
   ],
   imports: [
     CommonModule,
-    TaskListViewRoutingModule,
+    DashboardRoutingModule,
     MatTableModule,
     MatPaginatorModule,
     FormsModule,
@@ -31,4 +31,4 @@ import { MatDialogModule } from '@angular/material/dialog'
     MatDialogModule
   ]
 })
-export class TaskListViewModule { }
+export class DashboardModule { }
