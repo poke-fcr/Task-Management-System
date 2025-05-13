@@ -1,10 +1,11 @@
 import { AfterViewInit, Component, OnDestroy, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
-import { Observable, Subscription } from 'rxjs';
+import { Subscription } from 'rxjs';
 import { Task } from 'src/app/interface/taskList';
 import { AppService } from 'src/app/services/app.service';
 import { TaskManagementService } from 'src/app/services/task-management.service';
@@ -23,7 +24,8 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   @ViewChild('confirmDialog') confirmDialog!: TemplateRef<any>
   taskSubscription!: Subscription
   mobileModeSubscription!: Subscription
-  constructor(private taskService: TaskManagementService, private appService: AppService, private router: Router, public dialog: MatDialog) { }
+  constructor(private taskService: TaskManagementService, private appService: AppService,
+    private router: Router, public dialog: MatDialog, private snackbar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.mobileModeSubscription = this.appService.isMobileMode$.subscribe((value: boolean) => this.isMobileMode = value)
@@ -68,6 +70,12 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   confirmDelete(e: any) {
     this.taskService.deleteTask(e.id)
     this.dialog.closeAll()
+    this.snackbar.open("Task deleted", 'Close', {
+      duration: 3000,
+      panelClass: ['snackbar-success'],
+      horizontalPosition: 'center',
+      verticalPosition: 'top',
+    })
   }
 
   ngOnDestroy() {

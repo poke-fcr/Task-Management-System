@@ -1,8 +1,8 @@
 <div class="task-container">
     <h2 class="mat-title">
-        <ng-container *ngIf="mode == 'add'">Add Task</ng-container>
-        <ng-container *ngIf="mode == 'edit'">Edit Task</ng-container>
-        <ng-container *ngIf="mode == 'view'">View Task</ng-container>
+        <ng-container *ngIf="mode == 'add'">Add/Create Task</ng-container>
+        <ng-container *ngIf="mode == 'edit'">Edit/Update Task</ng-container>
+        <ng-container *ngIf="mode == 'view'">View Task Details</ng-container>
 
     </h2>
     <form [formGroup]="taskFormGroup" *ngIf="mode !== 'view'; else viewMode">
