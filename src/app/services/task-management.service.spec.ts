@@ -9,7 +9,7 @@ describe('TaskManagementService', () => {
 
   const mockTasks: Task[] = [
     { id: 1, taskName: 'Task 1', description: '', priority: 'High', status: 'Pending', assignedTo: 'User A', dueDate: '2024-12-01' },
-    { id: 2, taskName: 'Task 2', description: '', priority: 'Medium', status: 'InProgress', assignedTo: 'User B', dueDate: '2024-12-05' },
+    { id: 2, taskName: 'Task 2', description: '', priority: 'Medium', status: 'In Progress', assignedTo: 'User B', dueDate: '2024-12-05' },
   ];
 
   beforeEach(() => {
