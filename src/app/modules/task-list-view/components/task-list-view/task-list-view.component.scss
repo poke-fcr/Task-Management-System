@@ -1,0 +1,27 @@
+.table-container {
+    padding: 1rem;
+    border-radius: 8px;
+    overflow: auto;
+    background-color: var(--app-bg-color);
+    color: var(--app-text-color);
+}
+
+.search-field {
+    width: 40%;
+    margin-left: 12px;
+    height: min-content;
+}
+
+.task-table {
+    width: 100%;
+
+    td,
+    th {
+        padding: 12px;
+    }
+}
+
+.d-flex {
+    display: flex;
+    justify-content: space-between;
+}

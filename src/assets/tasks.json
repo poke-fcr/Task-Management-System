@@ -1,0 +1,228 @@
+[
+    {
+      "id": 1,
+      "taskName": "Fix login bug",
+      "description": "Resolve issue where login fails intermittently",
+      "priority": "High",
+      "status": "In Progress",
+      "assignedTo": "Alice",
+      "dueDate": "2025-05-15"
+    },
+    {
+      "id": 2,
+      "taskName": "Update dashboard UI",
+      "description": "Apply new styles and adjust layout",
+      "priority": "Medium",
+      "status": "Pending",
+      "assignedTo": "Bob",
+      "dueDate": "2025-05-20"
+    },
+    {
+      "id": 3,
+      "taskName": "Write unit tests",
+      "description": "Add test coverage for task service",
+      "priority": "Low",
+      "status": "Pending",
+      "assignedTo": "Charlie",
+      "dueDate": "2025-05-18"
+    },
+    {
+      "id": 4,
+      "taskName": "Integrate Stripe API",
+      "description": "Setup payment gateway integration",
+      "priority": "High",
+      "status": "In Progress",
+      "assignedTo": "David",
+      "dueDate": "2025-05-22"
+    },
+    {
+      "id": 5,
+      "taskName": "Refactor codebase",
+      "description": "Improve file structure and code readability",
+      "priority": "Medium",
+      "status": "Completed",
+      "assignedTo": "Alice",
+      "dueDate": "2025-04-30"
+    },
+    {
+      "id": 6,
+      "taskName": "Design logo",
+      "description": "Create a new logo for the product",
+      "priority": "Low",
+      "status": "Completed",
+      "assignedTo": "Eve",
+      "dueDate": "2025-05-01"
+    },
+    {
+      "id": 7,
+      "taskName": "Email notifications",
+      "description": "Send emails on task updates",
+      "priority": "Medium",
+      "status": "Pending",
+      "assignedTo": "Bob",
+      "dueDate": "2025-05-25"
+    },
+    {
+      "id": 8,
+      "taskName": "Performance improvements",
+      "description": "Optimize loading time for dashboard",
+      "priority": "High",
+      "status": "In Progress",
+      "assignedTo": "Charlie",
+      "dueDate": "2025-05-17"
+    },
+    {
+      "id": 9,
+      "taskName": "Add dark mode",
+      "description": "Implement theme toggle functionality",
+      "priority": "Medium",
+      "status": "Completed",
+      "assignedTo": "David",
+      "dueDate": "2025-05-10"
+    },
+    {
+      "id": 10,
+      "taskName": "Setup CI/CD",
+      "description": "Configure GitHub actions for deployment",
+      "priority": "High",
+      "status": "Pending",
+      "assignedTo": "Eve",
+      "dueDate": "2025-05-21"
+    },
+    {
+      "id": 11,
+      "taskName": "Database schema update",
+      "description": "Add new fields for audit logging",
+      "priority": "Medium",
+      "status": "Pending",
+      "assignedTo": "Alice",
+      "dueDate": "2025-05-19"
+    },
+    {
+      "id": 12,
+      "taskName": "User onboarding",
+      "description": "Create welcome emails and tutorials",
+      "priority": "Low",
+      "status": "In Progress",
+      "assignedTo": "Bob",
+      "dueDate": "2025-05-23"
+    },
+    {
+      "id": 13,
+      "taskName": "Fix mobile layout",
+      "description": "Correct layout issues on small screens",
+      "priority": "High",
+      "status": "In Progress",
+      "assignedTo": "Charlie",
+      "dueDate": "2025-05-12"
+    },
+    {
+      "id": 14,
+      "taskName": "Create FAQ page",
+      "description": "Add common questions and answers",
+      "priority": "Low",
+      "status": "Pending",
+      "assignedTo": "David",
+      "dueDate": "2025-05-30"
+    },
+    {
+      "id": 15,
+      "taskName": "Set up analytics",
+      "description": "Integrate Google Analytics",
+      "priority": "Medium",
+      "status": "Completed",
+      "assignedTo": "Eve",
+      "dueDate": "2025-05-09"
+    },
+    {
+      "id": 16,
+      "taskName": "Backend API review",
+      "description": "Check endpoints and validate responses",
+      "priority": "High",
+      "status": "Pending",
+      "assignedTo": "Alice",
+      "dueDate": "2025-05-16"
+    },
+    {
+      "id": 17,
+      "taskName": "Bug triage meeting",
+      "description": "Discuss priority bugs",
+      "priority": "Medium",
+      "status": "In Progress",
+      "assignedTo": "Bob",
+      "dueDate": "2025-05-14"
+    },
+    {
+      "id": 18,
+      "taskName": "Create changelog",
+      "description": "Maintain version history",
+      "priority": "Low",
+      "status": "Completed",
+      "assignedTo": "Charlie",
+      "dueDate": "2025-05-07"
+    },
+    {
+      "id": 19,
+      "taskName": "Implement task table",
+      "description": "Add Material Table with sorting/pagination",
+      "priority": "High",
+      "status": "In Progress",
+      "assignedTo": "David",
+      "dueDate": "2025-05-13"
+    },
+    {
+      "id": 20,
+      "taskName": "Localization support",
+      "description": "Support English and Spanish translations",
+      "priority": "Medium",
+      "status": "Pending",
+      "assignedTo": "Eve",
+      "dueDate": "2025-05-24"
+    },
+    {
+      "id": 21,
+      "taskName": "Accessibility audit",
+      "description": "Ensure contrast and keyboard nav",
+      "priority": "High",
+      "status": "Pending",
+      "assignedTo": "Alice",
+      "dueDate": "2025-05-31"
+    },
+    {
+      "id": 22,
+      "taskName": "Generate sitemap",
+      "description": "Auto-generate sitemap for SEO",
+      "priority": "Low",
+      "status": "Completed",
+      "assignedTo": "Bob",
+      "dueDate": "2025-05-02"
+    },
+    {
+      "id": 23,
+      "taskName": "Deploy staging site",
+      "description": "Push latest code to staging server",
+      "priority": "High",
+      "status": "Pending",
+      "assignedTo": "Charlie",
+      "dueDate": "2025-05-13"
+    },
+    {
+      "id": 24,
+      "taskName": "Admin role management",
+      "description": "Allow role editing for users",
+      "priority": "Medium",
+      "status": "In Progress",
+      "assignedTo": "David",
+      "dueDate": "2025-05-11"
+    },
+    {
+      "id": 25,
+      "taskName": "Code linting",
+      "description": "Run ESLint on the whole project",
+      "priority": "Low",
+      "status": "Completed",
+      "assignedTo": "Eve",
+      "dueDate": "2025-05-05"
+    }
+  ]
+  

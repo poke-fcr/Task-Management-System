@@ -1,0 +1,73 @@
+<div class="table-container">
+    <div class="d-flex">
+        <h2 class="mat-title">
+            Dashboard - Task View List
+        </h2>
+        <mat-form-field appearance="outline" class="search-field">
+            <mat-label>Search</mat-label>
+            <input type="text" matInput (keyup)="applyFilter($event)"
+                placeholder="Search by task name or description" />
+        </mat-form-field>
+    </div>
+
+    <table mat-table [dataSource]="dataSource" matSort class="task-table">
+
+        <!-- Task Name -->
+        <ng-container matColumnDef="taskName">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Task Name</th>
+            <td mat-cell *matCellDef="let task">{{ task.taskName }}</td>
+        </ng-container>
+
+        <!-- Description -->
+        <ng-container matColumnDef="description">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Description</th>
+            <td mat-cell *matCellDef="let task">{{ task.description }}</td>
+        </ng-container>
+
+        <!-- Priority -->
+        <ng-container matColumnDef="priority">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Priority</th>
+            <td mat-cell *matCellDef="let task">{{ task.priority }}</td>
+        </ng-container>
+
+        <!-- Status -->
+        <ng-container matColumnDef="status">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Status</th>
+            <td mat-cell *matCellDef="let task">{{ task.status }}</td>
+        </ng-container>
+
+        <!-- Assigned To -->
+        <ng-container matColumnDef="assignedTo">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Assigned To</th>
+            <td mat-cell *matCellDef="let task">{{ task.assignedTo }}</td>
+        </ng-container>
+
+        <!-- Due Date -->
+        <ng-container matColumnDef="dueDate">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Due Date</th>
+            <td mat-cell *matCellDef="let task">{{ task.dueDate | date }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="action">
+            <th mat-header-cell *matHeaderCellDef> Action </th>
+            <td mat-cell *matCellDef="let task">
+                <button mat-icon-button color="primary" (click)="onView(task)">
+                    <mat-icon>visibility</mat-icon>
+                </button>
+                <button mat-icon-button color="accent" (click)="onEdit(task)">
+                    <mat-icon>edit</mat-icon>
+                </button>
+                <button mat-icon-button color="warn" (click)="onDelete(task)">
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </td>
+        </ng-container>
+
+
+        <!-- Header and Row Definitions -->
+        <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+        <tr mat-row *matRowDef="let row; columns: columnsToDisplay;"></tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[6, 10, 25]" showFirstLastButtons></mat-paginator>
+</div>
