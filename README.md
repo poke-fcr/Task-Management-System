@@ -38,6 +38,7 @@ Project Features
         Angular material to provide responsiveness and good layout on web and mobile
     Error Handling
         User friendly messages displayed with help of anular material snackbar
-    a
+
+
 
 
