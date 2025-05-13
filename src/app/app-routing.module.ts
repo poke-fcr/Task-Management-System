@@ -6,11 +6,15 @@ const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: 'dashboard'
+    redirectTo: 'tasks'
   },
   {
     path: 'tasks',
     loadChildren: () => import('./modules/task-list-view/task-list-view.module').then(v => v.TaskListViewModule)
+  },
+  {
+    path: 'task-detail',
+    loadChildren: () => import('./modules/task-list-add-edit/task-list-add-edit.module').then(v => v.TaskListAddEditModule)
   },
   {
     path: '**',

@@ -1,13 +1,16 @@
 <div class="table-container">
-    <div class="d-flex">
+    <div [ngClass]="{ 'd-flex': !isMobileMode, 'd-flex-col': isMobileMode}">
         <h2 class="mat-title">
             Dashboard - Task View List
         </h2>
-        <mat-form-field appearance="outline" class="search-field">
-            <mat-label>Search</mat-label>
-            <input type="text" matInput (keyup)="applyFilter($event)"
-                placeholder="Search by task name or description" />
-        </mat-form-field>
+        <!-- <div class="d-flex-end"> -->
+            <mat-form-field appearance="outline" class="search-field">
+                <mat-label>Search</mat-label>
+                <input type="text" matInput (keyup)="applyFilter($event)"
+                    placeholder="Search by task name or description" />
+            </mat-form-field>
+            <!-- <button class="primary-button" color="primary" mat-raised-button><mat-icon>library_add</mat-icon>Add Task</button> -->
+        <!-- </div> -->
     </div>
 
     <table mat-table [dataSource]="dataSource" matSort class="task-table">

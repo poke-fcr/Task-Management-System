@@ -9,6 +9,7 @@
 .search-field {
     width: 40%;
     margin-left: 12px;
+    margin-right: 12px;
     height: min-content;
 }
 
@@ -25,3 +26,17 @@
     display: flex;
     justify-content: space-between;
 }
+
+.d-flex-end {
+    display: flex;
+    justify-content: end;
+}
+
+.d-flex-col {
+    display: flex;
+    flex-direction: column;
+}
+
+// .primary-button {
+//     padding: 22px;
+// }

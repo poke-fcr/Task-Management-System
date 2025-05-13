@@ -30,9 +30,15 @@ $light-theme: mat.define-light-theme((color: (primary: $primary,
         background-color: #fafafa;
     }
 }
+
+.mat-title {
+    color: var(--app-primary-text-color);
+}
+
 html,
 body {
     height: 100%;
+    color: var(--app-secondary-text-color)
 }
 
 body {

@@ -3,6 +3,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Task } from 'src/app/interface/taskList';
+import { AppService } from 'src/app/services/app.service';
 import { TaskManagementService } from 'src/app/services/task-management.service';
 
 @Component({
@@ -13,13 +14,16 @@ import { TaskManagementService } from 'src/app/services/task-management.service'
 export class TaskListViewComponent implements OnInit {
   dataSource = new MatTableDataSource<Task>();
   columnsToDisplay = ['taskName', 'description', 'priority', 'status', 'assignedTo', 'dueDate', 'action'];
-
+  isMobileMode: boolean = false
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(private taskService: TaskManagementService) { }
+  constructor(private taskService: TaskManagementService, private appService: AppService) { }
 
   ngOnInit(): void {
+    this.appService.isMobileMode$.subscribe((value: boolean) => this.isMobileMode = value)
+
+
     this.taskService.tasks$.subscribe((tasks) => {
       this.dataSource.data = tasks;
       this.dataSource.paginator = this.paginator;
