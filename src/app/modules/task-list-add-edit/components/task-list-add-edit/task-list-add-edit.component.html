@@ -82,66 +82,68 @@
 
     <!-- Read-only view -->
     <ng-template #viewMode>
-        <mat-grid-list cols="4" rowHeight="72px" gutterSize="12px">
-            <mat-grid-tile colspan="4">
-                <div class="readonly-field">
-                    <div style="display:flex"> <mat-icon color="primary">title</mat-icon>
-                        <h4>Task name</h4>
+        <mat-card style="padding: 12px;">
+            <mat-grid-list cols="4" rowHeight="72px" gutterSize="12px">
+                <mat-grid-tile colspan="4">
+                    <div class="readonly-field">
+                        <div style="display:flex"> <mat-icon color="primary">title</mat-icon>
+                            <h4>Task name</h4>
+                        </div>
+                        <p>{{ taskFormGroup.get('taskName')?.value }}</p>
                     </div>
-                    <p>{{ taskFormGroup.get('taskName')?.value }}</p>
-                </div>
-            </mat-grid-tile>
+                </mat-grid-tile>
 
-            <mat-grid-tile colspan="4">
-                <div class="readonly-field">
-                    <div style="display:flex"> <mat-icon color="accent">notes</mat-icon>
-                        <h4>Task Description</h4>
+                <mat-grid-tile colspan="4">
+                    <div class="readonly-field">
+                        <div style="display:flex"> <mat-icon color="accent">notes</mat-icon>
+                            <h4>Task Description</h4>
+                        </div>
+                        <p>{{ taskFormGroup.get('description')?.value }}</p>
                     </div>
-                    <p>{{ taskFormGroup.get('description')?.value }}</p>
-                </div>
-            </mat-grid-tile>
+                </mat-grid-tile>
 
-            <mat-grid-tile [colspan]="isMobileMode ? 2 : 1">
-                <div class="readonly-field">
-                    <div style="display:flex"> <mat-icon color="warn">priority_high</mat-icon>
-                        <h4>Priority</h4>
+                <mat-grid-tile [colspan]="isMobileMode ? 2 : 1">
+                    <div class="readonly-field">
+                        <div style="display:flex"> <mat-icon color="warn">priority_high</mat-icon>
+                            <h4>Priority</h4>
+                        </div>
+                        <mat-chip selected>
+                            {{ taskFormGroup.get('priority')?.value }}
+                        </mat-chip>
                     </div>
-                    <mat-chip selected>
-                        {{ taskFormGroup.get('priority')?.value }}
-                    </mat-chip>
-                </div>
-            </mat-grid-tile>
+                </mat-grid-tile>
 
-            <mat-grid-tile [colspan]="isMobileMode ? 2 : 1">
-                <div class="readonly-field">
-                    <div style="display:flex"> <mat-icon color="primary">track_changes</mat-icon>
-                        <h4>Status</h4>
+                <mat-grid-tile [colspan]="isMobileMode ? 2 : 1">
+                    <div class="readonly-field">
+                        <div style="display:flex"> <mat-icon color="primary">track_changes</mat-icon>
+                            <h4>Status</h4>
+                        </div>
+                        <mat-chip selected>
+                            {{ taskFormGroup.get('status')?.value }}
+                        </mat-chip>
                     </div>
-                    <mat-chip selected>
-                        {{ taskFormGroup.get('status')?.value }}
-                    </mat-chip>
-                </div>
-            </mat-grid-tile>
+                </mat-grid-tile>
 
-            <mat-grid-tile [colspan]="isMobileMode ? 2 : 1">
-                <div class="readonly-field">
-                    <div style="display:flex"> <mat-icon color="accent">person</mat-icon>
-                        <h4>Assigned To</h4>
+                <mat-grid-tile [colspan]="isMobileMode ? 2 : 1">
+                    <div class="readonly-field">
+                        <div style="display:flex"> <mat-icon color="accent">person</mat-icon>
+                            <h4>Assigned To</h4>
+                        </div>
+                        <p>{{ taskFormGroup.get('assignedTo')?.value }}</p>
                     </div>
-                    <p>{{ taskFormGroup.get('assignedTo')?.value }}</p>
-                </div>
-            </mat-grid-tile>
+                </mat-grid-tile>
 
-            <mat-grid-tile [colspan]="isMobileMode ? 2 : 1">
-                <div class="readonly-field">
-                    <div style="display:flex"> <mat-icon color="primary">event</mat-icon>
-                        <h4>Due Date</h4>
+                <mat-grid-tile [colspan]="isMobileMode ? 2 : 1">
+                    <div class="readonly-field">
+                        <div style="display:flex"> <mat-icon color="primary">event</mat-icon>
+                            <h4>Due Date</h4>
+                        </div>
+                        <p>{{ taskFormGroup.get('dueDate')?.value | date: 'MM/dd/yyyy' }}</p>
                     </div>
-                    <p>{{ taskFormGroup.get('dueDate')?.value | date: 'MM/dd/yyyy' }}</p>
-                </div>
-            </mat-grid-tile>
+                </mat-grid-tile>
 
-        </mat-grid-list>
+            </mat-grid-list>
+        </mat-card>
     </ng-template>
 
 

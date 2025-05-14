@@ -13,6 +13,7 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { HttpClientModule } from '@angular/common/http';
 import { MatMenuModule } from '@angular/material/menu';
 import { initializeApp } from "firebase/app";
+import { FooterComponent } from './components/footer/footer.component';
 const firebaseConfig = {
   apiKey: "AIzaSyCyLfhuq4i0VcncsyBrLGDKDTfDxMeCPj8",
   authDomain: "task-management-system-2.firebaseapp.com",
@@ -26,7 +27,8 @@ const firebaseConfig = {
   declarations: [
     AppComponent,
     HeaderComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
