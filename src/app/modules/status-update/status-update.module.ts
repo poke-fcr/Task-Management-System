@@ -5,6 +5,7 @@ import { StatusUpdateRoutingModule } from './status-update-routing.module';
 import { StatusUpdateComponent } from './components/status-update/status-update.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { MatChipsModule } from '@angular/material/chips';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { MatChipsModule } from '@angular/material/chips';
     CommonModule,
     StatusUpdateRoutingModule,
     DragDropModule,
-    MatChipsModule
+    MatChipsModule,
+    MatCardModule
   ]
 })
 export class StatusUpdateModule { }

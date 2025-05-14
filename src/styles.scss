@@ -30,7 +30,6 @@ $light-theme: mat.define-light-theme((color: (primary: $primary,
     --app-secondary-text-color: #0000008a;
     @include mat.all-component-themes($light-theme);
 
-    .mat-mdc-table,
     .mat-mdc-paginator {
         background-color: #fafafa;
     }

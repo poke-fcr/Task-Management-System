@@ -3,7 +3,7 @@
         Task Status Update
     </h2>
     <small>Drag and Drop task cards to update status</small>
-    <div style="margin-top: 16px;">
+    <mat-card class="task-container">
         <div class="example-container">
             <h2>Pending</h2>
 
@@ -30,5 +30,5 @@
                 <div class="example-box" *ngFor="let item of completed" cdkDrag>{{item.taskName}}</div>
             </div>
         </div>
-    </div>
+    </mat-card>
 </div>
