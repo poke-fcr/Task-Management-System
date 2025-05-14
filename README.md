@@ -76,21 +76,6 @@ To run unit tests:
 ng test
 ```
 
-If `karma.conf.js` is missing or browser config is failing (e.g., Chrome not installed), [follow this guide](https://github.com/angular/components/blob/main/guides/duplicate-theming-styles.md) to configure Karma properly and/or use Microsoft Edge:
-
-```bash
-# Create karma.conf.js (if not already present)
-ng generate config karma
-
-# Install Edge launcher
-npm install karma-edge-launcher --save-dev
-```
-
-Set browser to `Edge` in `karma.conf.js`:
-```js
-browsers: ['Edge']
-```
-
 ### Code Coverage
 
 To generate a coverage report:
@@ -102,7 +87,7 @@ ng test --code-coverage
 Then open the report:
 
 ```bash
-npx http-server coverage/<project-name>/
+npx http-server coverage/task-management-system/
 # or simply open coverage/index.html in your browser
 ```
 
@@ -119,7 +104,7 @@ npx http-server coverage/<project-name>/
 ### Installation
 
 ```bash
-git clone https://github.com/your-username/task-management-system.git
+git clone https://github.com/poke-fcr/Task-Management-System.git
 cd task-management-system
 npm install
 npm run start
