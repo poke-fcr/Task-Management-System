@@ -7,6 +7,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { RouterTestingModule } from '@angular/router/testing';
 import { By } from '@angular/platform-browser';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 describe('HeaderComponent', () => {
   let component: HeaderComponent;
@@ -20,7 +21,8 @@ describe('HeaderComponent', () => {
         MatIconModule,
         MatButtonModule,
         MatSlideToggleModule,
-        RouterTestingModule
+        RouterTestingModule,
+        MatToolbarModule
       ],
       providers: [
         {

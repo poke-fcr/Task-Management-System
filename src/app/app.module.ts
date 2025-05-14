@@ -11,6 +11,7 @@ import { MatButtonModule } from '@angular/material/button'
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component'
 import { HttpClientModule } from '@angular/common/http';
+import { MatMenuModule } from '@angular/material/menu';
 import { initializeApp } from "firebase/app";
 const firebaseConfig = {
   apiKey: "AIzaSyCyLfhuq4i0VcncsyBrLGDKDTfDxMeCPj8",
@@ -35,7 +36,8 @@ const firebaseConfig = {
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]
