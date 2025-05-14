@@ -1,11 +1,21 @@
 import { TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
+import { HeaderComponent } from './components/header/header.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatIconModule } from '@angular/material/icon';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatButtonModule } from '@angular/material/button';
 
 describe('AppComponent', () => {
   beforeEach(() => TestBed.configureTestingModule({
-    imports: [RouterTestingModule],
-    declarations: [AppComponent]
+    imports: [RouterTestingModule, MatToolbarModule,
+      MatIconModule,
+      MatButtonModule,
+      MatSlideToggleModule,
+      MatMenuModule],
+    declarations: [AppComponent, HeaderComponent]
   }));
 
   it('should create the app', () => {
@@ -20,10 +30,4 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('task-management-system');
   });
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('task-management-system app is running!');
-  });
 });

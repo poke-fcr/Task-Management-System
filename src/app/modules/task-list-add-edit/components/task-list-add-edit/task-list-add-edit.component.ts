@@ -97,7 +97,7 @@ export class TaskListAddEditComponent implements OnInit, OnDestroy {
       });
       setTimeout(() => {
         this.router.navigate(['dashboard'])
-      }, 1000)
+      }, 1200)
     }
   }
 

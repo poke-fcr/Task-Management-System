@@ -8,6 +8,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { RouterTestingModule } from '@angular/router/testing';
 import { By } from '@angular/platform-browser';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatMenuModule } from '@angular/material/menu';
 
 describe('HeaderComponent', () => {
   let component: HeaderComponent;
@@ -22,7 +23,8 @@ describe('HeaderComponent', () => {
         MatButtonModule,
         MatSlideToggleModule,
         RouterTestingModule,
-        MatToolbarModule
+        MatToolbarModule,
+        MatMenuModule
       ],
       providers: [
         {
@@ -91,6 +93,13 @@ describe('HeaderComponent', () => {
     
     const dashboardButton = fixture.debugElement.query(By.css('button[routerLink="dashboard"]'));
     expect(dashboardButton).toBeTruthy();
+  });
+
+   it('should render title', () => {
+    const fixture = TestBed.createComponent(HeaderComponent);
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('#title')?.textContent).toContain('Task Management System');
   });
 
 });
