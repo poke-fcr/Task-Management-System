@@ -51,7 +51,8 @@ src/
 ├── app/
 │   ├── components/
 │   │   └── header/           --> Application Header
-|   |   └──pageNotFound       --> For Invaid Routes
+|   |   └──pageNotFound/      --> For Invaid Routes
+|   |   └── Footer/           --> Application Footer
 │   ├── modules/
 │   │   ├── dashboard/        --> Summary with action buttons
 │   │   ├── status-update/    --> Drag & drop task status view
