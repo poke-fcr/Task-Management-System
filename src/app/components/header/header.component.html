@@ -1,5 +1,5 @@
 <mat-toolbar class="toolbar-custom">
-    <button *ngIf="isMobileMode" mat-icon-button>
+    <button *ngIf="isMobileMode" mat-icon-button [matMenuTriggerFor]="menu">
         <mat-icon>menu</mat-icon>
     </button>
     <span>Task Management System</span>
@@ -18,4 +18,18 @@
             <mat-slide-toggle (change)="switch($event)"><span class="label-custom">Dark Mode</span></mat-slide-toggle>
         </div>
     </ng-container>
+    <mat-menu #menu="matMenu">
+        <button mat-menu-item routerLink="dashboard" routerLinkActive="active-link">
+            <mat-icon>dashboard</mat-icon><span>Dashboard</span>
+        </button>
+        <button mat-menu-item routerLink="task-detail/add" routerLinkActive="active-link">
+            <mat-icon>library_add</mat-icon><span>Add Task</span>
+        </button>
+        <button mat-menu-item routerLink="status-update" routerLinkActive="active-link">
+            <mat-icon>view_carousel</mat-icon><span>Status Update</span>
+        </button>
+        <button mat-menu-item>
+            <mat-slide-toggle (change)="switch($event)"><span>Dark Mode</span></mat-slide-toggle>
+        </button>
+    </mat-menu>
 </mat-toolbar>
