@@ -18,13 +18,15 @@
         <!-- Task Name -->
         <ng-container matColumnDef="taskName">
             <th mat-header-cell *matHeaderCellDef mat-sort-header>Task Name</th>
-            <td mat-cell *matCellDef="let task">{{ (task.taskName?.substr(0,20)) + (task.taskName?.length > 20 ? '...': '') }}</td>
+            <td mat-cell *matCellDef="let task">{{ (task.taskName?.substr(0,20)) + (task.taskName?.length > 20 ? '...':
+                '') }}</td>
         </ng-container>
 
         <!-- Description -->
         <ng-container matColumnDef="description">
             <th mat-header-cell *matHeaderCellDef mat-sort-header>Description</th>
-            <td mat-cell *matCellDef="let task">{{ (task.description?.substr(0, 20)) + (task.description?.length > 20 ? '...': '')  }}</td>
+            <td mat-cell *matCellDef="let task">{{ (task.description?.substr(0, 20)) + (task.description?.length > 20 ?
+                '...': '') }}</td>
         </ng-container>
 
         <!-- Priority -->
@@ -69,6 +71,11 @@
 
         <!-- Header and Row Definitions -->
         <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+        <tr class="mat-row" *matNoDataRow>
+            <td class="mat-cell" colspan="8" style="text-align: center;">
+                No data available
+            </td>
+        </tr>
         <tr mat-row *matRowDef="let row; columns: columnsToDisplay;"></tr>
     </table>
 
