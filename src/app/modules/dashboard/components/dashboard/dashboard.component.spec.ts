@@ -15,6 +15,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatCardModule } from '@angular/material/card';
 
 describe('DashboardComponent', () => {
   let component: DashboardComponent;
@@ -32,7 +33,9 @@ describe('DashboardComponent', () => {
         MatIconModule,
         MatButtonModule,
         MatDialogModule,
-        MatSnackBarModule],
+        MatSnackBarModule,
+        MatCardModule
+      ],
       providers: [TaskManagementService]
     });
     fixture = TestBed.createComponent(DashboardComponent);

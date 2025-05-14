@@ -18,6 +18,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
+import { MatCardModule } from '@angular/material/card';
 
 describe('TaskListAddEditComponent', () => {
   let component: TaskListAddEditComponent;
@@ -61,7 +62,9 @@ describe('TaskListAddEditComponent', () => {
         MatDatepickerModule,
         MatNativeDateModule,
         MatIconModule,
-        MatChipsModule],
+        MatChipsModule,
+        MatCardModule
+      ],
       providers: [
         { provide: TaskManagementService, useValue: mockTaskService },
         { provide: AppService, useValue: mockAppService },

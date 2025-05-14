@@ -7,6 +7,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatButtonModule } from '@angular/material/button';
+import { FooterComponent } from './components/footer/footer.component';
 
 describe('AppComponent', () => {
   beforeEach(() => TestBed.configureTestingModule({
@@ -15,7 +16,7 @@ describe('AppComponent', () => {
       MatButtonModule,
       MatSlideToggleModule,
       MatMenuModule],
-    declarations: [AppComponent, HeaderComponent]
+    declarations: [AppComponent, HeaderComponent, FooterComponent]
   }));
 
   it('should create the app', () => {
